@@ -1,11 +1,22 @@
-# Sử dụng image Java 17
-FROM openjdk:17
+# ===== STAGE 1: Build app =====
+FROM maven:3.9.4-eclipse-temurin-17 AS build
 
-# Đặt thư mục làm việc trong container
 WORKDIR /app
 
-# Copy file .war từ máy host vào container
-COPY target/TestReact-0.0.1-SNAPSHOT.jar app.jar
+# Copy source code
+COPY . .
 
-# Lệnh để chạy ứng dụng
-ENTRYPOINT ["java", "-jar", "app.war"]
+# Build project
+RUN mvn clean package -DskipTests
+
+# ===== STAGE 2: Run app =====
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+# Copy jar from stage 1
+COPY --from=build /app/target/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
