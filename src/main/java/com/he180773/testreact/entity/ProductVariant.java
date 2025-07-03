@@ -19,7 +19,7 @@ public class ProductVariant {
     private Long productId;
     @Column(name = "quantity")
     private Integer quantity;
-    @Column(name = "image", columnDefinition = "NVARCHAR(MAX)")
+    @Column(name = "image")
     private String image;
 
     public Long getId() {

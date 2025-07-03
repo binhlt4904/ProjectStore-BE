@@ -12,7 +12,7 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Long id;
-    @Column(name = "user_id",  columnDefinition = "Numeric(18)")
+    @Column(name = "user_id")
     private Long userId;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
