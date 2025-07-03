@@ -11,7 +11,7 @@
     <groupId>com.he180773</groupId>
     <artifactId>TestReact</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>TestReact</name>
     <description>TestReact</description>
     <url/>

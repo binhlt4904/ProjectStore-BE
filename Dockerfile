@@ -5,7 +5,7 @@ FROM openjdk:17
 WORKDIR /app
 
 # Copy file .war từ máy host vào container
-COPY target/TestReact-0.0.1-SNAPSHOT.war app.war
+COPY target/TestReact-0.0.1-SNAPSHOT.jar app.jar
 
 # Lệnh để chạy ứng dụng
 ENTRYPOINT ["java", "-jar", "app.war"]
