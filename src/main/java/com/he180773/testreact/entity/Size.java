@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Size {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false, columnDefinition = "Numeric(18)")
+    @Column(name = "ID", nullable = false)
     private int id;
     @Column(name = "CODE", length = 50, nullable = false, unique = true)
     private String code;

@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class ProductVariant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false, columnDefinition = "Numeric(18)")
+    @Column(name = "ID", nullable = false)
     private Long id;
     @Column(name = "COLOR", length = 50)
     private String color;

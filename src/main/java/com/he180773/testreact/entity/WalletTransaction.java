@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class WalletTransaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false, columnDefinition = "Numeric(18)")
+    @Column(name = "ID", nullable = false)
     private Long id;
     @Column(name = "wallet_id")
     private Long walletId;

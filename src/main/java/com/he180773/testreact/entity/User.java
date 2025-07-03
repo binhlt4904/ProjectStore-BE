@@ -10,7 +10,7 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false, columnDefinition = "Numeric(18)")
+    @Column(name = "ID", nullable = false)
     private Long id;
     @Column(name = "USERNAME", length = 50, nullable = false, unique = true)
     private String username;

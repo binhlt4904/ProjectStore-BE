@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false, columnDefinition = "Numeric(18)")
+    @Column(name = "ID", nullable = false)
     private Long id;
     @Column(name = "user_id",  columnDefinition = "Numeric(18)")
     private Long userId;
