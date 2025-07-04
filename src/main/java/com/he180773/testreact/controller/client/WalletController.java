@@ -69,7 +69,7 @@ public class WalletController {
 
 
 
-    @Scheduled(fixedRate = 600000) // 1 phút
+    @Scheduled(fixedRate = 30000) // 1 phút
     public void checkPendingTransactions() {
         LocalDateTime fiveMinutesAgo = LocalDateTime.now().minusMinutes(5);
         List<WalletTransaction> pendingTransactions = walletTransactionRepository.findByStatus("PENDING");

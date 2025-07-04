@@ -164,7 +164,7 @@ public class AuthController {
             cart.setUserId(user.getId());
             cart.setCreatedAt(LocalDateTime.now());
             cartRepository.save(cart);
-            
+
             Wallet  wallet = new Wallet();
             wallet.setUserId(user.getId());
             wallet.setBalance(0);
