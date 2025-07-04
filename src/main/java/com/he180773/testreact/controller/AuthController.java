@@ -3,8 +3,10 @@ package com.he180773.testreact.controller;
 
 import com.he180773.testreact.dto.UserDTO;
 import com.he180773.testreact.dto.VerifyOtpRequest;
+import com.he180773.testreact.entity.Cart;
 import com.he180773.testreact.entity.OtpVerification;
 import com.he180773.testreact.entity.Wallet;
+import com.he180773.testreact.repository.CartRepository;
 import com.he180773.testreact.repository.OtpVerificationRepository;
 import com.he180773.testreact.repository.WalletRepository;
 import com.he180773.testreact.request.AccountRequest;
@@ -49,11 +51,13 @@ public class AuthController {
     private final EmailService emailService;
     private final OtpVerificationRepository otpVerificationRepository;
     private final OtpService otpService;
+    private final CartRepository cartRepository;
 
     public AuthController(UserRepository userRepository, AuthenticationManager authenticationManager,
                           JwtUtils jwtUtils, UserService userService,BCryptPasswordEncoder passwordEncoder,
                           WalletRepository walletRepository, EmailService emailService,
-                          OtpVerificationRepository otpVerificationRepository, OtpService otpService) {
+                          OtpVerificationRepository otpVerificationRepository, OtpService otpService,
+                          CartRepository cartRepository) {
         this.userRepository = userRepository;
         this.authenticationManager = authenticationManager;
         this.jwtUtils = jwtUtils;
@@ -63,6 +67,7 @@ public class AuthController {
         this.emailService = emailService;
         this.otpVerificationRepository = otpVerificationRepository;
         this.otpService = otpService;
+        this.cartRepository = cartRepository;
     }
 
     @PostMapping("/login")
@@ -152,13 +157,22 @@ public class AuthController {
             if (!password.startsWith("$2a$")) {
                 user.setPassword(passwordEncoder.encode(password));
             }
+
             userService.save(user);
+
+            Cart cart = new Cart();
+            cart.setUserId(user.getId());
+            cart.setCreatedAt(LocalDateTime.now());
+            cartRepository.save(cart);
+            
             Wallet  wallet = new Wallet();
             wallet.setUserId(user.getId());
             wallet.setBalance(0);
             wallet.setStatus("ON");
             wallet.setLastUpdated(LocalDateTime.now());
             walletRepository.save(wallet);
+
+
 
             emailService.sendOtp(request.getEmail());
             return ResponseEntity.ok("Đăng ký thành công! Vui lòng kiểm tra email để xác thực OTP.");
