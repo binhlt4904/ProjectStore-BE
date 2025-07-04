@@ -39,6 +39,7 @@ public class UserController {
         userUpdate.setEmail(user.getEmail());
         userUpdate.setGender(user.isGender());
         userUpdate.setDob(user.getDob());
+        userUpdate.setAvatar(user.getAvatar());
 
         userRepository.save(userUpdate);
         return ResponseEntity.ok(userUpdate);
