@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/admin/revenue")
-@CrossOrigin(origins = "https://projectstore-fe.onrender.com")
+@CrossOrigin(origins = "https://leventstreetwear.id.vn")
 public class RevenueController {
 
     private final RevenueService revenueService;

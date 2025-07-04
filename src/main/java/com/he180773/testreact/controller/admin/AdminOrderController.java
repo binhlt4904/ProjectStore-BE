@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/admin/order")
-@CrossOrigin(origins = "https://projectstore-fe.onrender.com")
+@CrossOrigin(origins = "https://leventstreetwear.id.vn")
 public class AdminOrderController {
 
 

@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "https://projectstore-fe.onrender.com")
+@CrossOrigin(origins = "https://leventstreetwear.id.vn")
 public class ProductController {
 
     private final ProductService productService;
