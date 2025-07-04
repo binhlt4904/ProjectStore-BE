@@ -22,7 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin/products")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://projectstore-fe.onrender.com")
 public class AdminProductController {
 
     private final ProductService productService;

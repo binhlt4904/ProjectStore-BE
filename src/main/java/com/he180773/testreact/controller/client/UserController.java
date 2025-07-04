@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://projectstore-fe.onrender.com")
 public class UserController {
     private final UserService userService;
     private final UserRepository userRepository;

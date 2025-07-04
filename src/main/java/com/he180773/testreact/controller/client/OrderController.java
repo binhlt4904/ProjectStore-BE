@@ -20,7 +20,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/order")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://projectstore-fe.onrender.com")
 public class OrderController {
     private final OrderRepository orderRepository;
     private final OrderItemRepository orderItemRepository;

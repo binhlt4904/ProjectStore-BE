@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/productVariant")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://projectstore-fe.onrender.com")
 public class ProductVariantController {
 
     private final ProductVariantRepository productVariantRepository;
