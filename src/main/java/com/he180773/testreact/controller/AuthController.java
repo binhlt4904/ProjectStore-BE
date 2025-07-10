@@ -140,13 +140,12 @@ public class AuthController {
             String username = request.getUsername();
             String password = request.getPassword();
 
-            if(userRepository.findByUsername(username) != null) {
-                return ResponseEntity.status(409).body("Tài khoản đã tồn tại!");
-            }
-
-
             if (userRepository.existsByEmail(request.getEmail())) {
                 return ResponseEntity.status(400).body("Email đã được sử dụng!");
+            }
+
+            if(userRepository.findByUsername(username) != null) {
+                return ResponseEntity.status(409).body("Tài khoản đã tồn tại!");
             }
 
             User user = new User();
